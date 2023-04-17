@@ -62,7 +62,7 @@ namespace FrostweepGames.Plugins.GoogleCloud.SpeechRecognition.Examples
 			_stopRecordButton = transform.Find("Canvas/Button_StopRecord").GetComponent<Button>();
 			_getOperationButton = transform.Find("Canvas/Button_GetOperation").GetComponent<Button>();
 			_getListOperationsButton = transform.Find("Canvas/Button_GetListOperations").GetComponent<Button>();
-			_detectThresholdButton = transform.Find("Canvas/Button_DetectThreshold").GetComponent<Button>();
+			_detectThresholdButton = transform.Find("Canvas/Settings_Page/Button_DetectThreshold").GetComponent<Button>();
 			_cancelAllRequestsButton = transform.Find("Canvas/Button_CancelAllRequests").GetComponent<Button>();
 			_recognizeButton = transform.Find("Canvas/Button_Recognize").GetComponent<Button>();
 			_refreshMicrophonesButton = transform.Find("Canvas/Button_RefreshMics").GetComponent<Button>();
