@@ -288,7 +288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &17611690
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7549,8 +7549,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: What can I help you with today?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fea0b9f03ee9390448612b807700a4b9, type: 2}
-  m_sharedMaterial: {fileID: 6189387183058621748, guid: fea0b9f03ee9390448612b807700a4b9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6b2c0de368127434a873a37438f29ade, type: 2}
+  m_sharedMaterial: {fileID: -305558938984048484, guid: 6b2c0de368127434a873a37438f29ade, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7580,7 +7580,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
