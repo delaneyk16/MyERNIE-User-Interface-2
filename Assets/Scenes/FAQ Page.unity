@@ -314,12 +314,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 12
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.5, y: -2250}
-  m_SizeDelta: {x: -25, y: 150}
+  m_AnchoredPosition: {x: -12.5, y: -2141.1162}
+  m_SizeDelta: {x: -25, y: 156.6803}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &184485847
 MonoBehaviour:
@@ -343,8 +343,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How often do student employees get paid?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
+  m_sharedMaterial: {fileID: 8534716011761091245, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -449,12 +449,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3825}
-  m_SizeDelta: {x: -50, y: 300}
+  m_AnchoredPosition: {x: 0, y: -3790.0369}
+  m_SizeDelta: {x: -50, y: 313.5339}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &316813317
 MonoBehaviour:
@@ -479,8 +479,8 @@ MonoBehaviour:
   m_text: Advisor offices are located all over campus. To contact your advisor about
     their location, go to the "My Advisors" tab on your ERNIE homepage.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
+  m_sharedMaterial: {fileID: -875182115630219460, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -585,12 +585,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 13
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2400}
-  m_SizeDelta: {x: -50, y: 75}
+  m_AnchoredPosition: {x: 0, y: -2300.75}
+  m_SizeDelta: {x: -50, y: 78.3835}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &365352510
 MonoBehaviour:
@@ -614,8 +614,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Every two weeks on Thursday.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
+  m_sharedMaterial: {fileID: -875182115630219460, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -720,12 +720,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 11
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2075}
-  m_SizeDelta: {x: -50, y: 150}
+  m_AnchoredPosition: {x: 0, y: -1961.0881}
+  m_SizeDelta: {x: -50, y: 156.7671}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &439486247
 MonoBehaviour:
@@ -749,8 +749,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Go to prescott.erau.edu/campus-life/academic-calendar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
+  m_sharedMaterial: {fileID: -875182115630219460, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -855,28 +855,28 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1746515844}
-  - {fileID: 2003464655}
   - {fileID: 1865454142}
-  - {fileID: 1341903425}
   - {fileID: 706409075}
-  - {fileID: 1010116995}
   - {fileID: 1367220897}
-  - {fileID: 881467857}
   - {fileID: 1193501050}
-  - {fileID: 981614088}
   - {fileID: 860380944}
-  - {fileID: 439486246}
   - {fileID: 184485846}
-  - {fileID: 365352509}
   - {fileID: 1152473048}
-  - {fileID: 483156676}
   - {fileID: 1099683237}
-  - {fileID: 819736387}
   - {fileID: 868049695}
-  - {fileID: 1962229236}
   - {fileID: 1312285224}
-  - {fileID: 316813316}
   - {fileID: 1458712509}
+  - {fileID: 2003464655}
+  - {fileID: 1341903425}
+  - {fileID: 1010116995}
+  - {fileID: 881467857}
+  - {fileID: 981614088}
+  - {fileID: 439486246}
+  - {fileID: 365352509}
+  - {fileID: 483156676}
+  - {fileID: 819736387}
+  - {fileID: 1962229236}
+  - {fileID: 316813316}
   - {fileID: 1879662125}
   m_Father: {fileID: 165837153}
   m_RootOrder: 1
@@ -1237,12 +1237,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 15
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2575}
-  m_SizeDelta: {x: -50, y: 150}
+  m_AnchoredPosition: {x: 0, y: -2483.6453}
+  m_SizeDelta: {x: -50, y: 156.7671}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &483156677
 MonoBehaviour:
@@ -1266,8 +1266,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Contact your advisor. They will then send you an academic change form.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
+  m_sharedMaterial: {fileID: -875182115630219460, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1456,12 +1456,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.5, y: -800}
-  m_SizeDelta: {x: -25, y: 150}
+  m_AnchoredPosition: {x: -12.5, y: -626.5414}
+  m_SizeDelta: {x: -25, y: 156.6803}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &706409076
 MonoBehaviour:
@@ -1485,8 +1485,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Where can I find the flowchart for my degree?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
+  m_sharedMaterial: {fileID: 8534716011761091245, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1516,7 +1516,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1591,12 +1591,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 17
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2900}
-  m_SizeDelta: {x: -50, y: 425}
+  m_AnchoredPosition: {x: 0, y: -2823.3066}
+  m_SizeDelta: {x: -50, y: 444.1733}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &819736388
 MonoBehaviour:
@@ -1631,8 +1631,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
+  m_sharedMaterial: {fileID: -875182115630219460, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1737,12 +1737,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 10
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.5, y: -1925}
-  m_SizeDelta: {x: -25, y: 150}
+  m_AnchoredPosition: {x: -12.5, y: -1801.6425}
+  m_SizeDelta: {x: -25, y: 156.6803}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &860380945
 MonoBehaviour:
@@ -1766,8 +1766,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Where can I find the academic calendar?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
+  m_sharedMaterial: {fileID: 8534716011761091245, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1797,7 +1797,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1872,12 +1872,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 18
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.5, y: -3350}
-  m_SizeDelta: {x: -25, y: 150}
+  m_AnchoredPosition: {x: -12.5, y: -3290.104}
+  m_SizeDelta: {x: -25, y: 156.6803}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &868049696
 MonoBehaviour:
@@ -1901,8 +1901,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: What are the hours of operation for Earhart's dining hall?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
+  m_sharedMaterial: {fileID: 8534716011761091245, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1932,7 +1932,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2007,12 +2007,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 7
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1425}
-  m_SizeDelta: {x: -50, y: 300}
+  m_AnchoredPosition: {x: 0, y: -1281.7644}
+  m_SizeDelta: {x: -50, y: 313.5339}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &881467858
 MonoBehaviour:
@@ -2037,8 +2037,8 @@ MonoBehaviour:
   m_text: They offer scheduled tutoring appointments and drop-in tutoring. For more
     info, go to ernie.erau.edu > Departments > The Tutoring Center.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
+  m_sharedMaterial: {fileID: -875182115630219460, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2371,12 +2371,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 9
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1825}
-  m_SizeDelta: {x: -50, y: 75}
+  m_AnchoredPosition: {x: 0, y: -1699.8098}
+  m_SizeDelta: {x: -50, y: 78.3835}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &981614089
 MonoBehaviour:
@@ -2400,8 +2400,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Typically, it's due June 30, 11:59pm CT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
+  m_sharedMaterial: {fileID: -875182115630219460, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2506,12 +2506,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 5
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -950}
-  m_SizeDelta: {x: -50, y: 300}
+  m_AnchoredPosition: {x: 0, y: -785.3353}
+  m_SizeDelta: {x: -50, y: 313.5339}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1010116996
 MonoBehaviour:
@@ -2536,8 +2536,8 @@ MonoBehaviour:
   m_text: Go to ernie.erau.edu and search "flow charts". You can then select your
     college and see the flow charts for all degrees in that college.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
+  m_sharedMaterial: {fileID: -875182115630219460, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2776,12 +2776,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 16
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.5, y: -2750}
-  m_SizeDelta: {x: -25, y: 150}
+  m_AnchoredPosition: {x: -12.5, y: -2663.383}
+  m_SizeDelta: {x: -25, y: 156.6803}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1099683238
 MonoBehaviour:
@@ -2805,8 +2805,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: What are the hours of operation for the library?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
+  m_sharedMaterial: {fileID: 8534716011761091245, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2836,7 +2836,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2911,12 +2911,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 14
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.5, y: -2500}
-  m_SizeDelta: {x: -25, y: 75}
+  m_AnchoredPosition: {x: -12.5, y: -2402.2495}
+  m_SizeDelta: {x: -25, y: 78.3401}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1152473049
 MonoBehaviour:
@@ -2940,8 +2940,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How do I add/change my minor?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
+  m_sharedMaterial: {fileID: 8534716011761091245, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2971,7 +2971,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -3046,12 +3046,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.5, y: -1750}
-  m_SizeDelta: {x: -25, y: 75}
+  m_AnchoredPosition: {x: -12.5, y: -1618.8484}
+  m_SizeDelta: {x: -25, y: 78.3401}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1193501051
 MonoBehaviour:
@@ -3075,8 +3075,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: When is FAFSA due?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
+  m_sharedMaterial: {fileID: 8534716011761091245, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3106,7 +3106,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -3333,12 +3333,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 20
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.5, y: -3675}
-  m_SizeDelta: {x: -25, y: 150}
+  m_AnchoredPosition: {x: -12.5, y: -3629.5776}
+  m_SizeDelta: {x: -25, y: 156.6803}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1312285225
 MonoBehaviour:
@@ -3362,8 +3362,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Where is my academic advisor located?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
+  m_sharedMaterial: {fileID: 8534716011761091245, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3393,7 +3393,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -3468,12 +3468,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 3
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -475}
-  m_SizeDelta: {x: -50, y: 300}
+  m_AnchoredPosition: {x: 0, y: -410.6153}
+  m_SizeDelta: {x: -50, y: 304.6825}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1341903426
 MonoBehaviour:
@@ -3500,8 +3500,8 @@ MonoBehaviour:
     Spring - typically the
     first week of March'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
+  m_sharedMaterial: {fileID: -875182115630219460, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3606,12 +3606,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.5, y: -1275}
-  m_SizeDelta: {x: -25, y: 150}
+  m_AnchoredPosition: {x: -12.5, y: -1122.6952}
+  m_SizeDelta: {x: -25, y: 156.6803}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1367220898
 MonoBehaviour:
@@ -3635,8 +3635,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: What services does ERAU peer tutoring offer?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
+  m_sharedMaterial: {fileID: 8534716011761091245, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3666,7 +3666,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -3846,7 +3846,7 @@ RectTransform:
   m_GameObject: {fileID: 1408359511}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1385725792}
@@ -3879,8 +3879,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Frequently Asked Questions
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5037425a35a6428468fc56f8c45351cb, type: 2}
+  m_sharedMaterial: {fileID: -5171990173946625670, guid: 5037425a35a6428468fc56f8c45351cb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3910,7 +3910,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3985,12 +3985,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 22
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.5, y: -4150}
-  m_SizeDelta: {x: -25, y: 150}
+  m_AnchoredPosition: {x: -12.5, y: -4125.7314}
+  m_SizeDelta: {x: -25, y: 156.6803}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1458712510
 MonoBehaviour:
@@ -4014,8 +4014,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How many credits can I transfer to ERAU?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
+  m_sharedMaterial: {fileID: 8534716011761091245, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4045,7 +4045,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -4256,8 +4256,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: What are the hours of operation for WOW?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
+  m_sharedMaterial: {fileID: 8534716011761091245, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4287,7 +4287,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -4537,7 +4537,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 901214601}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.37426016
+  m_Size: 0.3742602
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4679,7 +4679,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -4708,8 +4708,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: When are class registration dates?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
+  m_sharedMaterial: {fileID: 8534716011761091245, guid: da0982593d7e7d648b99868e1d0b3927, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4739,7 +4739,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -4818,8 +4818,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -4300}
-  m_SizeDelta: {x: -50, y: 300}
+  m_AnchoredPosition: {x: 0, y: -4286.466}
+  m_SizeDelta: {x: -50, y: 313.5339}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1879662126
 MonoBehaviour:
@@ -4844,8 +4844,8 @@ MonoBehaviour:
   m_text: To view the transfer portal, go to prescott.erau.edu/admissions/credit.
     You can then enter your classes and/or AP credit to see which credits transfer.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
+  m_sharedMaterial: {fileID: -875182115630219460, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4950,12 +4950,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 19
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3500}
-  m_SizeDelta: {x: -50, y: 150}
+  m_AnchoredPosition: {x: 0, y: -3450.375}
+  m_SizeDelta: {x: -50, y: 156.7671}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1962229237
 MonoBehaviour:
@@ -4981,8 +4981,8 @@ MonoBehaviour:
 
     Sat-Sun: 8:30am - 9pm'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
+  m_sharedMaterial: {fileID: -875182115630219460, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5373,7 +5373,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445636739}
-  m_RootOrder: 1
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -5404,8 +5404,8 @@ MonoBehaviour:
 
     Sat-Sun: Noon - 5pm'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
+  m_sharedMaterial: {fileID: -875182115630219460, guid: cbb3d8c1854951047986974045b3d7f8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

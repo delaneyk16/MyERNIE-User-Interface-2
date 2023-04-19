@@ -49,47 +49,54 @@ public class KeywordMatcher : MonoBehaviour
     }
 
     public void MatchKeywords(string userInput)
+{
+    if (WebDataFetcherInstance == null)
     {
-        if (WebDataFetcherInstance == null)
+        Debug.LogWarning("WebDataFetcher instance is not set.");
+        return;
+    }
+
+    if (string.IsNullOrEmpty(userInput))
+    {
+        Debug.LogWarning("User input is empty.");
+        return;
+    }
+
+    List<WebDataFetcher.QuestionAnswer> questionAnswers = WebDataFetcherInstance.GetQuestionAnswers();
+
+    if (questionAnswers == null)
+    {
+        Debug.LogWarning("QuestionAnswers list is null. Please wait for it to be loaded before calling GetQuestionAnswers().");
+        return;
+    }
+
+    if (questionAnswers.Count == 0)
+    {
+        Debug.LogWarning("QuestionAnswers list is empty.");
+        return;
+    }
+
+    int highestMatchCount = 0;
+
+    foreach (WebDataFetcher.QuestionAnswer qa in questionAnswers)
+    {
+        string keywords = string.IsNullOrEmpty(qa.Keywords) ? qa.Question : qa.Keywords;
+        int matchCount = CountMatchingKeywords(userInput, keywords);
+
+        if (matchCount > highestMatchCount)
         {
-            Debug.LogWarning("WebDataFetcher instance is not set.");
-            return;
-        }
-
-        if (string.IsNullOrEmpty(userInput))
-        {
-            Debug.LogWarning("User input is empty.");
-            return;
-        }
-
-        List<WebDataFetcher.QuestionAnswer> questionAnswers = WebDataFetcherInstance.GetQuestionAnswers();
-
-        if (questionAnswers == null)
-        {
-            Debug.LogWarning("QuestionAnswers list is null. Please wait for it to be loaded before calling GetQuestionAnswers().");
-            return;
-        }
-
-        if (questionAnswers.Count == 0)
-        {
-            Debug.LogWarning("QuestionAnswers list is empty.");
-            return;
-        }
-
-        int highestMatchCount = 0;
-
-        foreach (WebDataFetcher.QuestionAnswer qa in questionAnswers)
-        {
-            string keywords = string.IsNullOrEmpty(qa.Keywords) ? qa.Question : qa.Keywords;
-            int matchCount = CountMatchingKeywords(userInput, keywords);
-
-            if (matchCount > highestMatchCount)
-            {
-                highestMatchCount = matchCount;
-                _matchedAnswer = qa.Answer;
-            }
+            highestMatchCount = matchCount;
+            _matchedAnswer = qa.Answer;
         }
     }
+
+    // Check if highestMatchCount is less than 2, then set _matchedAnswer to the error message
+    if (highestMatchCount < 2)
+    {
+        _matchedAnswer = "Sorry, couldn't not recognize the request, please try again.";
+    }
+}
+
 
     public int CountMatchingKeywords(string input, string keywords)
     {

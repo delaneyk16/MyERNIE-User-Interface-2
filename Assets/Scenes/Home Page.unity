@@ -2625,8 +2625,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Things You Can Ask Me:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 11b93a5aeb8f3444d8d6bac8edb48f46, type: 2}
+  m_sharedMaterial: {fileID: -4200329384407920519, guid: 11b93a5aeb8f3444d8d6bac8edb48f46, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4927,7 +4927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1264244506
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7097,7 +7097,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1658158732}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: b0f3e02aae5c6794aae2ab0e6a5681fd, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1658158732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7537,8 +7549,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: What can I help you with today?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fea0b9f03ee9390448612b807700a4b9, type: 2}
+  m_sharedMaterial: {fileID: 6189387183058621748, guid: fea0b9f03ee9390448612b807700a4b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8021,7 +8033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1921119462
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8031,7 +8043,7 @@ RectTransform:
   m_GameObject: {fileID: 1921119461}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.93, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1716423955}
@@ -8040,7 +8052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2294.8987}
+  m_AnchoredPosition: {x: 397, y: -634}
   m_SizeDelta: {x: 405.09998, y: 21.070007}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1921119463
@@ -8516,8 +8528,8 @@ MonoBehaviour:
 
     What classes should I take?'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9a00a3ebe4f58794e9a9ec7f8c6ac44f, type: 2}
+  m_sharedMaterial: {fileID: 1349752602702016769, guid: 9a00a3ebe4f58794e9a9ec7f8c6ac44f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8547,7 +8559,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
