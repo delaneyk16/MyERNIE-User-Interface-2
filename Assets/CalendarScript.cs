@@ -52,6 +52,8 @@ namespace Calendar
 
         public List<Day> days = new List<Day>();
         public static List<DateTime> specialDates = new List<DateTime>(); //stores dates that have events from Academic Calendar
+        public static int specialDatesLoaded = 0;
+        Dictionary<string, string> monthNicknames = new Dictionary<string, string>();
 
         public Transform[] weeks; //stores CalendarWeeks
 
@@ -66,6 +68,27 @@ namespace Calendar
         private void Start()
         {
             UpdateCalendar(DateTime.Now.Year, DateTime.Now.Month);
+            monthNicknames.Add("January", "Jan.");
+            monthNicknames.Add("February", "Feb.");
+            monthNicknames.Add("March", "Mar.");
+            monthNicknames.Add("April", "Apr.");
+            monthNicknames.Add("May", "May");
+            monthNicknames.Add("June", "Jun.");
+            monthNicknames.Add("July", "Jul.");
+            monthNicknames.Add("August", "Aug.");
+            monthNicknames.Add("September", "Sept.");
+            monthNicknames.Add("October", "Oct.");
+            monthNicknames.Add("November", "Nov.");
+            monthNicknames.Add("December", "Dec.");
+        }
+
+        private void Update()
+        {
+            if (specialDatesLoaded == 1)
+            {
+                UpdateCalendar(DateTime.Now.Year, DateTime.Now.Month);
+                specialDatesLoaded = 2;
+            }
         }
 
         void UpdateCalendar(int year, int month)
@@ -160,9 +183,21 @@ namespace Calendar
             popUp.SetActive(false);
         }
 
+
+
+
+
+        
+
+
+
+
         // Web scraping function for the ERAU Academic Calendar
         IEnumerator GetRequest(string uri, int dayNumber)
         {
+            
+
+
             //Debug.Log("In GetRequest with dayNumber " + dayNumber);
             UnityWebRequest uwr = UnityWebRequest.Get(uri);
             yield return uwr.SendWebRequest();
@@ -178,17 +213,31 @@ namespace Calendar
                 var lines = webpage.Split('\n');
                 bool found = false;
                 int printedHours = 0;
-                string searchMonth = currDate.ToString("MMMM") + " ";
 
-                date.GetComponent<TextMeshProUGUI>().text = searchMonth + dayNumber;
+
+                string searchMonth = currDate.ToString("MMMM");
+                string monthNickname = "";
+                monthNicknames.TryGetValue(searchMonth, out monthNickname);
+                //Debug.Log("Month: " + monthNickname);
+
+                date.GetComponent<TextMeshProUGUI>().text = searchMonth + " " + dayNumber;
 
                 // Finds matching date that the user clicks on and gets the event description from the next HTML line
                 foreach (var line in lines)
                 {
-                    if (line.Contains(searchMonth))
+                    if (line.Contains(searchMonth) || line.Contains(monthNickname))
                     {
+                        // Special case for the holiday Juneteenth
+                        if (line.Contains("Juneteenth"))
+                        {
+                            eventDesc.GetComponent<TextMeshProUGUI>().text = "Holiday - Juneteenth";
+                            break;
+                        }
+
+                        //Debug.Log("Line: " + line);
                         var monthDayLines = line.Split('<', '>');
-                        string monthDay = monthDayLines[2];
+                        string monthDay = monthDayLines[2].Replace("&nbsp;", " ");
+                        Debug.Log("monthDay: " + monthDay);
 
                         if (monthDay.Contains("&"))
                         {
@@ -207,7 +256,6 @@ namespace Calendar
                         }
                         else if (monthDay.Contains(",") || monthDay.Contains("-"))
                         {
-                            // Special case for Dec 10, 2022 on Academic Calendar
                             if (monthDay.Contains(","))
                             {
                                 int index = monthDay.IndexOf(",");
@@ -238,6 +286,7 @@ namespace Calendar
                         }
                         else
                         {
+                            
                             int index = monthDay.IndexOf(" ");
                             string num = monthDay.Substring(index + 1);
 
@@ -247,6 +296,7 @@ namespace Calendar
                             // Ensures that date is exact match to HTML text
                             if (num == dayNumber.ToString())
                             {
+                                Debug.Log("MonthDay: " + monthDay);
                                 found = true;
                             }
                         }
@@ -254,14 +304,21 @@ namespace Calendar
 
                     else if (found)
                     {
-                        //Debug.Log("Line: " + line);
+                        Debug.Log("Line: " + line);
                         var text = line.Split('>', '<');
+                        Debug.Log("text[2]: " + text[2]);
+
 
                         // Fixing double quote issue from HTML text
                         if (text[2].ToLower().Contains('&'))
                         {
-                            string correctText = text[2].Replace("&ldquo;", "\"").Replace("&rdquo;", "\"");
+                            string correctText = text[2].Replace("&ldquo;", "\"").Replace("&rdquo;", "\"").Replace("&amp;", "&");
                             eventDesc.GetComponent<TextMeshProUGUI>().text = correctText;
+                        }
+                        else if (text[2] == "")
+                        {
+                            eventDesc.GetComponent<TextMeshProUGUI>().text = "Cannot display event.\n\n" +
+                                "Please visit prescott.erau.edu/campus-life/academic-calendar for more info.";
                         }
                         else
                         {

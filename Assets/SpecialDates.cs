@@ -14,7 +14,7 @@ public class SpecialDates : MonoBehaviour
         // Scrape through the Academic Calendar page on the ERAU website
         StartCoroutine(GetRequest("https://prescott.erau.edu/campus-life/academic-calendar"));
 
-        // Populate the month dictionary
+        // Populate the month dictionary with full month names
         monthStrings.Add("January", 1);
         monthStrings.Add("February", 2);
         monthStrings.Add("March", 3);
@@ -27,6 +27,20 @@ public class SpecialDates : MonoBehaviour
         monthStrings.Add("October", 10);
         monthStrings.Add("November", 11);
         monthStrings.Add("December", 12);
+
+        // Populate the month dictionary with abbreviated month names
+        monthStrings.Add("Jan.", 1);
+        monthStrings.Add("Feb.", 2);
+        monthStrings.Add("Mar.", 3);
+        monthStrings.Add("Apr.", 4);
+        //no abbreviation for May
+        monthStrings.Add("Jun.", 6);
+        monthStrings.Add("Jul.", 7);
+        monthStrings.Add("Aug.", 8);
+        monthStrings.Add("Sept.", 9);
+        monthStrings.Add("Oct.", 10);
+        monthStrings.Add("Nov.", 11);
+        monthStrings.Add("Dec.", 12);
     }
 
 
@@ -65,10 +79,24 @@ public class SpecialDates : MonoBehaviour
                 // Pick out the lines that have dates in them
                 foreach (var mon in monthStrings.Keys)
                 {
-                    if (line.Contains(mon + " "))
+                    if (line.Contains(mon) && !line.Contains(mon + "<"))
                     {
+                        // Special case for the holiday Juneteenth
+                        if (line.Contains("Juneteenth"))
+                        {
+                            break;
+                        }
+                        
                         var monthDayLines = line.Split('<', '>');
                         string monthDay = monthDayLines[2]; //the second line contains the date (in the way it's split)
+
+                        // Special cases for some HTML lines
+                        if (monthDay.Contains("&nbsp;"))
+                        {
+                            monthDay = monthDay.Replace("&nbsp;", " ");
+                        }
+
+                        //Debug.Log("Line: " + monthDay);
 
                         // Handling special cases within the HTML text and populate the monthDays list
                         if (monthDay.Contains("&"))
@@ -139,6 +167,7 @@ public class SpecialDates : MonoBehaviour
                     }
                 }
             }
+            Calendar.CalendarScript.specialDatesLoaded = 1;
         }
     }
 }
