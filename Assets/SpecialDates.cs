@@ -1,19 +1,98 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Networking;
 using Calendar;
 
 public class SpecialDates : MonoBehaviour
 {
-    Dictionary<string, int> monthStrings = new Dictionary<string, int>();
+    static Dictionary<string, int> monthStrings = new Dictionary<string, int>();
+    List<string> monthDays = new List<string>();
 
-    void Start()
+    static void AddEvent(string dayMon, string year, string eventDetails)
     {
-        // Scrape through the Academic Calendar page on the ERAU website
-        StartCoroutine(GetRequest("https://prescott.erau.edu/campus-life/academic-calendar"));
+        // Set the month
+        int month = 0;
+        foreach (var mon in monthStrings)
+        {
+            if (dayMon.Contains(mon.Key))
+            {
+                month = mon.Value;
+            }
+        }
 
+        //Set the year
+        int yr = Int32.Parse(year);
+
+        // Handles dates that have & in the line from Academic Calendar
+        if (dayMon.Contains("&"))
+        {
+            int index = dayMon.IndexOf("&");
+            string num1 = dayMon.Substring(index - 3, 2);
+            string num2 = dayMon.Substring(index + 1);
+
+            int day1 = Int32.Parse(num1);
+            int day2 = Int32.Parse(num2);
+
+            DateTime date1 = new DateTime(yr, month, day1);
+            Calendar.CalendarScript.specialDates.Add(date1, eventDetails);
+            DateTime date2 = new DateTime(yr, month, day2);
+            Calendar.CalendarScript.specialDates.TryAdd(date2, eventDetails);
+            //Debug.Log("Add date: " + month + " " + num1 + ", " + year + " - " + eventDetails);
+            //Debug.Log("Add date: " + month + " " + num2 + ", " + year + " - " + eventDetails);
+        }
+        // Handles dates that have , or - in the line from Academic Calendar
+        else if (dayMon.Contains(",") || dayMon.Contains("-"))
+        {
+            if (dayMon.Contains(","))
+            {
+                int index = dayMon.IndexOf(",");
+                string num1 = dayMon.Substring(index - 2, 2);
+
+                int day = Int32.Parse(num1);
+
+                DateTime date = new DateTime(yr, month, day);
+                Calendar.CalendarScript.specialDates.TryAdd(date, eventDetails);
+                //Debug.Log("Add date: " + month + " " + num1 + ", " + year + " - " + eventDetails);
+            }
+            if (dayMon.Contains("-"))
+            {
+                int index = dayMon.IndexOf("-");
+
+                string num1 = dayMon.Substring(index - 2, 2);
+                int begNum = Int32.Parse(num1);
+
+                string num2 = dayMon.Substring(index + 1);
+                int endNum = Int32.Parse(num2);
+
+                for (int i = begNum; i <= endNum; i++)
+                {
+                    DateTime date = new DateTime(yr, month, i);
+                    Calendar.CalendarScript.specialDates.TryAdd(date, eventDetails);
+                    //Debug.Log("Add date: " + month + " " + i + ", " + year + " - " + eventDetails);
+                }
+            }
+        }
+        // Regular dates listed on the Academic Calendar
+        else
+        {
+            int index = dayMon.IndexOf(" ");
+            string num1 = dayMon.Substring(index + 1);
+
+            int day = Int32.Parse(num1);
+
+            DateTime date = new DateTime(yr, month, day);
+            Calendar.CalendarScript.specialDates.TryAdd(date, eventDetails);
+            //Debug.Log("Add date: " + month + " " + num1 + ", " + year + " - " + eventDetails);
+        }        
+    }
+
+    private void Start()
+    {
+        StartCoroutine(GetRequest("https://prescott.erau.edu/campus-life/academic-calendar"));
+        
         // Populate the month dictionary with full month names
         monthStrings.Add("January", 1);
         monthStrings.Add("February", 2);
@@ -54,120 +133,117 @@ public class SpecialDates : MonoBehaviour
             Debug.Log("Error While Sending: " + uwr.error);
         }
 
-        else
+        string webpage = uwr.downloadHandler.text;
+        var lines = webpage.Split('\n');
+        string year = "";
+
+        //determine if it's a pertinent line, ignore lines before
+        bool semesterInfo = false;
+        bool monthFound = false;
+        string monthDaySave = "";
+        string eventSave = "";
+        foreach (var line in lines)
         {
-            string webpage = uwr.downloadHandler.text;
-            var lines = webpage.Split('\n');
-            string year = "";
-            List<string> monthDays = new List<string>();
-
-            foreach (var line in lines)
+            if (line.Contains("Semester"))
             {
-                // Handle the year from the HTML text
-                if (line.Contains("Semester"))
+                semesterInfo = true;
+                if (line.Contains("Fall"))
                 {
-                    if (line.Contains("Fall"))
-                    {
-                        year = line.Substring(9, 4);
-                    }
-                    else if (line.Contains("Spring"))
-                    {
-                        year = line.Substring(11, 4);
-                    }
+                    year = line.Substring(9, 4);
+                    //Debug.Log("line="+line+" year="+year);
                 }
-
-                // Pick out the lines that have dates in them
-                foreach (var mon in monthStrings.Keys)
+                else if (line.Contains("Spring"))
                 {
-                    if (line.Contains(mon) && !line.Contains(mon + "<"))
+                    year = line.Substring(11, 4);
+                    //Debug.Log("line="+line+" year="+year);
+                }
+            }
+            else if ((semesterInfo == true) && (monthFound == false))
+            {
+                if (line.Contains("td"))
+                {
+                    //Debug.Log(line);
+                    //parse out part between > <
+                    var monthDayLines = line.Split('<', '>');
+                    if (monthDayLines.Length > 2)
                     {
-                        // Special case for the holiday Juneteenth
-                        if (line.Contains("Juneteenth"))
+                        string data = monthDayLines[2]; //the second line contains the date (in the way it's split)
+                                                        //Debug.Log(monthDayLines[2]);
+                        data = data.Replace("&nbsp;", " ");
+                        data = data.Replace("&amp;", "&");
+
+
+                        string pattern = "^[A-Z][a-z][a-z][a-z]?[.]";  //month abbreviated Feb.
+                        string pattern2 = "^[A-Z][a-z]+ [0-9]+";  //March 8
+                        Regex rg = new Regex(pattern);
+                        Regex rg2 = new Regex(pattern2);
+                        if (rg.IsMatch(data))
                         {
-                            break;
+                            //Debug.Log("Month found:"+data);
+                            monthFound = true;
+                            monthDaySave = data;
                         }
-                        
-                        var monthDayLines = line.Split('<', '>');
-                        string monthDay = monthDayLines[2]; //the second line contains the date (in the way it's split)
-
-                        // Special cases for some HTML lines
-                        if (monthDay.Contains("&nbsp;"))
+                        else if (rg2.IsMatch(data))
                         {
-                            monthDay = monthDay.Replace("&nbsp;", " ");
-                        }
-
-                        //Debug.Log("Line: " + monthDay);
-
-                        // Handling special cases within the HTML text and populate the monthDays list
-                        if (monthDay.Contains("&"))
-                        {
-                            int index = monthDay.IndexOf("&");
-                            string num1 = monthDay.Substring(index - 3, 2);
-                            string num2 = monthDay.Substring(index + 6);
-
-                            monthDays.Add(mon + num1);
-                            monthDays.Add(mon + num2);
-                        }
-                        else if (monthDay.Contains(",") || monthDay.Contains("-"))
-                        {
-                            if (monthDay.Contains(","))
-                            {
-                                int index = monthDay.IndexOf(",");
-                                string num1 = monthDay.Substring(index - 2, 2);
-
-                                monthDays.Add(mon + num1);
-                            }
-                            if (monthDay.Contains("-"))
-                            {
-                                int index = monthDay.IndexOf("-");
-
-                                string num1 = monthDay.Substring(index - 2, 2);
-                                int begNum = Int32.Parse(num1);
-
-                                string num2 = monthDay.Substring(index + 1);
-                                int endNum = Int32.Parse(num2);
-
-                                for (int i = begNum; i <= endNum; i++)
-                                {
-                                    monthDays.Add(mon + i);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            int index = monthDay.IndexOf(" ");
-
-                            string num = monthDay.Substring(index + 1);
-
-                            monthDays.Add(mon + num);
+                            //Debug.Log("Month found:"+data);
+                            monthFound = true;
+                            monthDaySave = data;
                         }
                     }
                 }
             }
-
-            // Iterating through the monthDays list to pick out the month and day
-            foreach (string x in monthDays)
+            else if ((semesterInfo == true) && (monthFound == true))
             {
-                string noSpaces = x.Replace(" ", "");
-                
-                foreach (var mon in monthStrings)
+
+                //Debug.Log(line);
+                //parse out part between >le <
+                var monthDayLines = line.Split('<', '>');
+                //Debug.Log("2="+monthDayLines[2]+" 4="+monthDayLines[4]);
+                if (monthDayLines.Length > 2)
                 {
-                    if (noSpaces.Contains(mon.Key))
-                    {
-                        string d = noSpaces.Substring(mon.Key.Length);
-                        int day = Int32.Parse(d);
-
-                        int month = mon.Value;
-
-                        int yr = Int32.Parse(year);
-
-                        // Add them to the list of specialDates in the CalendarScript.cs so they will be colored differently
-                        DateTime date = new DateTime(yr, month, day);
-                        Calendar.CalendarScript.specialDates.Add(date);
+                    string data = monthDayLines[2];
+                    if ((data.Length < 2) && (monthDayLines.Length > 4))
+                    { //for the <a>Commencement</a>
+                        data = monthDayLines[4];
                     }
+                    data = data.Replace("&ldquo;", "\"");
+                    data = data.Replace("&rdquo;", "\"");
+                    data = data.Replace("&amp;", "&");
+
+                    string pattern = "[^><]+";
+                    Regex rg = new Regex(pattern);
+                    if (rg.IsMatch(data))
+                    {
+                        //Debug.Log("data="+data);
+                        if (data.Length > 1)
+                        {
+                            if (eventSave == "")
+                            {
+                                eventSave = data;
+                            }
+                            else
+                            {
+                                eventSave = eventSave + "\n" + data;
+                            }
+                            //Debug.Log("event found:"+data+" len(data)"+data.Length);
+
+                        }
+                    }
+
                 }
+                // }
+                if (line.Contains("/td>"))
+                {
+                    //Debug.Log("EVENT: "+monthDaySave+" - "+eventSave);
+                    AddEvent(monthDaySave, year, eventSave);
+                    monthDaySave = "";
+                    eventSave = "";
+                    monthFound = false;
+                }
+
             }
-            Calendar.CalendarScript.specialDatesLoaded = 1;
-        }
+        } //end foreach
+
+        Calendar.CalendarScript.specialDatesLoaded = 1;
     }
 }

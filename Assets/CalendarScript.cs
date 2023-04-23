@@ -51,9 +51,8 @@ namespace Calendar
         } //end of Day class
 
         public List<Day> days = new List<Day>();
-        public static List<DateTime> specialDates = new List<DateTime>(); //stores dates that have events from Academic Calendar
+        public static Dictionary<DateTime, string> specialDates = new Dictionary<DateTime, string>(); //stores dates and events from Academic Calendar, populated in SpecialDates2.cs
         public static int specialDatesLoaded = 0;
-        Dictionary<string, string> monthNicknames = new Dictionary<string, string>();
 
         public Transform[] weeks; //stores CalendarWeeks
 
@@ -68,18 +67,6 @@ namespace Calendar
         private void Start()
         {
             UpdateCalendar(DateTime.Now.Year, DateTime.Now.Month);
-            monthNicknames.Add("January", "Jan.");
-            monthNicknames.Add("February", "Feb.");
-            monthNicknames.Add("March", "Mar.");
-            monthNicknames.Add("April", "Apr.");
-            monthNicknames.Add("May", "May");
-            monthNicknames.Add("June", "Jun.");
-            monthNicknames.Add("July", "Jul.");
-            monthNicknames.Add("August", "Aug.");
-            monthNicknames.Add("September", "Sept.");
-            monthNicknames.Add("October", "Oct.");
-            monthNicknames.Add("November", "Nov.");
-            monthNicknames.Add("December", "Dec.");
         }
 
         private void Update()
@@ -128,9 +115,9 @@ namespace Calendar
                 days[(DateTime.Now.Day - 1) + startDay].UpdateColor(Color.yellow);
             }
 
-            foreach (DateTime sd in specialDates)
+            foreach (DateTime sd in specialDates.Keys)
             {
-                if (sd.Month == month)
+                if (sd.Month == month && sd.Year == year)
                 {
                     Color lightBlue = new Color(0.4f, 0.5f, 0.9f);
                     days[(sd.Day - 1) + startDay].UpdateColor(lightBlue);
@@ -173,7 +160,7 @@ namespace Calendar
                 popUp.SetActive(true);
                 date.GetComponent<TextMeshProUGUI>().text = "";
                 eventDesc.GetComponent<TextMeshProUGUI>().text = "";
-                StartCoroutine(GetRequest("https://prescott.erau.edu/campus-life/academic-calendar", dayNum));
+                printEvent(dayNum);
             }
         }
 
@@ -183,157 +170,27 @@ namespace Calendar
             popUp.SetActive(false);
         }
 
-
-
-
-
-        
-
-
-
-
-        // Web scraping function for the ERAU Academic Calendar
-        IEnumerator GetRequest(string uri, int dayNumber)
+        // Function that prints the events happening on the date
+        public void printEvent(int day)
         {
-            
+            string monthStr = currDate.ToString("MMMM");
+            string displayedDate = monthStr + " " + day;
+            date.GetComponent<TextMeshProUGUI>().text = displayedDate;
 
+            int month = currDate.Month;
+            int year = currDate.Year;
 
-            //Debug.Log("In GetRequest with dayNumber " + dayNumber);
-            UnityWebRequest uwr = UnityWebRequest.Get(uri);
-            yield return uwr.SendWebRequest();
+            DateTime d = new DateTime(year, month, day);
 
-            if (uwr.isNetworkError)
+            if (specialDates.ContainsKey(d))
             {
-                Debug.Log("Error While Sending: " + uwr.error);
+                string events = specialDates[d];
+                eventDesc.GetComponent<TextMeshProUGUI>().text = events;
+                //Debug.Log("This is a special date");
             }
-
             else
             {
-                string webpage = uwr.downloadHandler.text;
-                var lines = webpage.Split('\n');
-                bool found = false;
-                int printedHours = 0;
-
-
-                string searchMonth = currDate.ToString("MMMM");
-                string monthNickname = "";
-                monthNicknames.TryGetValue(searchMonth, out monthNickname);
-                //Debug.Log("Month: " + monthNickname);
-
-                date.GetComponent<TextMeshProUGUI>().text = searchMonth + " " + dayNumber;
-
-                // Finds matching date that the user clicks on and gets the event description from the next HTML line
-                foreach (var line in lines)
-                {
-                    if (line.Contains(searchMonth) || line.Contains(monthNickname))
-                    {
-                        // Special case for the holiday Juneteenth
-                        if (line.Contains("Juneteenth"))
-                        {
-                            eventDesc.GetComponent<TextMeshProUGUI>().text = "Holiday - Juneteenth";
-                            break;
-                        }
-
-                        //Debug.Log("Line: " + line);
-                        var monthDayLines = line.Split('<', '>');
-                        string monthDay = monthDayLines[2].Replace("&nbsp;", " ");
-                        Debug.Log("monthDay: " + monthDay);
-
-                        if (monthDay.Contains("&"))
-                        {
-                            int index = monthDay.IndexOf("&");
-                            string num1 = monthDay.Substring(index - 3, 2);
-                            string num2 = monthDay.Substring(index + 6);
-
-                            // Remove spaces for comparison
-                            num1 = num1.Replace(" ", "");
-                            num2 = num2.Replace(" ", "");
-
-                            if (num1 == dayNumber.ToString() || num2 == dayNumber.ToString())
-                            {
-                                found = true;
-                            }
-                        }
-                        else if (monthDay.Contains(",") || monthDay.Contains("-"))
-                        {
-                            if (monthDay.Contains(","))
-                            {
-                                int index = monthDay.IndexOf(",");
-                                string num1 = monthDay.Substring(index - 2, 2);
-
-                                // Remove spaces before comparison
-                                num1 = num1.Replace(" ", "");
-
-                                if (num1 == dayNumber.ToString())
-                                {
-                                    found = true;
-                                    Debug.Log("December 10 special case is complete");
-                                }
-                            }
-                            if (monthDay.Contains("-"))
-                            {
-                                int index = monthDay.IndexOf("-");
-                                string num1 = monthDay.Substring(index - 2, 2);
-                                string num2 = monthDay.Substring(index + 1);
-                                int number1 = Int32.Parse(num1);
-                                int number2 = Int32.Parse(num2);
-
-                                if (dayNumber >= number1 && dayNumber <= number2)
-                                {
-                                    found = true;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            
-                            int index = monthDay.IndexOf(" ");
-                            string num = monthDay.Substring(index + 1);
-
-                            // Remove spaces before comparison
-                            num = num.Replace(" ", "");
-
-                            // Ensures that date is exact match to HTML text
-                            if (num == dayNumber.ToString())
-                            {
-                                Debug.Log("MonthDay: " + monthDay);
-                                found = true;
-                            }
-                        }
-                    }
-
-                    else if (found)
-                    {
-                        Debug.Log("Line: " + line);
-                        var text = line.Split('>', '<');
-                        Debug.Log("text[2]: " + text[2]);
-
-
-                        // Fixing double quote issue from HTML text
-                        if (text[2].ToLower().Contains('&'))
-                        {
-                            string correctText = text[2].Replace("&ldquo;", "\"").Replace("&rdquo;", "\"").Replace("&amp;", "&");
-                            eventDesc.GetComponent<TextMeshProUGUI>().text = correctText;
-                        }
-                        else if (text[2] == "")
-                        {
-                            eventDesc.GetComponent<TextMeshProUGUI>().text = "Cannot display event.\n\n" +
-                                "Please visit prescott.erau.edu/campus-life/academic-calendar for more info.";
-                        }
-                        else
-                        {
-                            eventDesc.GetComponent<TextMeshProUGUI>().text = text[2];
-                        }
-
-                        break;
-                    }
-                }
-
-                // If the date is not listed on the Academic Calendar
-                if (!found)
-                {
-                    eventDesc.GetComponent<TextMeshProUGUI>().text = "There are no events happening on this day. ";
-                }
+                eventDesc.GetComponent<TextMeshProUGUI>().text = "There are no events happening.\n";
             }
         }
     }
