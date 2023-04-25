@@ -12,7 +12,7 @@ using Mapbox.Unity.Map;
 
 public class PinchAndZoom : MonoBehaviour
 {
-#if UNITY_IOS || UNITY_ANDROID
+
     public Camera Camera;
     public AbstractMap _map;
     public bool Rotate;
@@ -116,5 +116,5 @@ public class PinchAndZoom : MonoBehaviour
     }
 
 
-#endif
+
 }
