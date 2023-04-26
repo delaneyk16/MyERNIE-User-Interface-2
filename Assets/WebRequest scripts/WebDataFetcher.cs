@@ -26,6 +26,7 @@ public class WebDataFetcher : MonoBehaviour
         public string Question = "";
         public string Answer = "";
         public string Keywords = "";
+        public string SecondaryKeywords = "";
     }
 
     private void Awake()

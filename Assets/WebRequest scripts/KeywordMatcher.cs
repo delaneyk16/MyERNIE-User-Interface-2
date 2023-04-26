@@ -86,30 +86,41 @@ if (GCSR_Example.speechText != _previousUserInput)
         return;
     }
 
-    int highestMatchCount = 0;
+    float highestWeightedMatchCount = 0f;
 
     foreach (WebDataFetcher.QuestionAnswer qa in questionAnswers)
     {
-        string keywords = string.IsNullOrEmpty(qa.Keywords) ? qa.Question : qa.Keywords;
-        
-        // Apply stemming on the keywords
-        string stemmedKeywords = string.Join(" ", RemovePunctuation(keywords.ToLower())
+        string primaryKeywords = string.IsNullOrEmpty(qa.Keywords) ? qa.Question : qa.Keywords;
+        string secondaryKeywords = qa.SecondaryKeywords;
+
+        // Apply stemming on the primary and secondary keywords
+        string stemmedPrimaryKeywords = string.Join(" ", RemovePunctuation(primaryKeywords.ToLower())
             .Split(' ')
             .Where(word => !stopWords.Contains(word))
             .Select(word => StemWord(word))
         );
 
-        int matchCount = CountMatchingKeywords(userInput, stemmedKeywords);
+        string stemmedSecondaryKeywords = string.Join(" ", RemovePunctuation(secondaryKeywords.ToLower())
+            .Split(' ')
+            .Where(word => !stopWords.Contains(word))
+            .Select(word => StemWord(word))
+        );
 
-        if (matchCount > highestMatchCount)
+        int primaryMatchCount = CountMatchingKeywords(userInput, stemmedPrimaryKeywords);
+        int secondaryMatchCount = CountMatchingKeywords(userInput, stemmedSecondaryKeywords);
+
+        // Calculate the weighted match count
+        float weightedMatchCount = primaryMatchCount + (0.5f * secondaryMatchCount);
+
+        if (weightedMatchCount > highestWeightedMatchCount)
         {
-            highestMatchCount = matchCount;
+            highestWeightedMatchCount = weightedMatchCount;
             _matchedAnswer = qa.Answer;
         }
     }
 
-    // Check if highestMatchCount is less than 2, then set _matchedAnswer to the error message
-    if (highestMatchCount < 2)
+    // Check if highestWeightedMatchCount is less than 2.5, then set _matchedAnswer to the error message
+    if (highestWeightedMatchCount < 2.5f)
     {
         _matchedAnswer = "Sorry, couldn't not recognize the request, please try again.";
     }
