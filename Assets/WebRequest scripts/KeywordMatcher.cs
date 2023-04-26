@@ -60,6 +60,7 @@ if (GCSR_Example.speechText != _previousUserInput)
 
     public void MatchKeywords(string userInput)
 {
+    float highestSimilarityScore = 0f;
     if (WebDataFetcherInstance == null)
     {
         Debug.LogWarning("WebDataFetcher instance is not set.");
@@ -106,21 +107,21 @@ if (GCSR_Example.speechText != _previousUserInput)
             .Select(word => StemWord(word))
         );
 
-        int primaryMatchCount = CountMatchingKeywords(userInput, stemmedPrimaryKeywords);
-        int secondaryMatchCount = CountMatchingKeywords(userInput, stemmedSecondaryKeywords);
+        float primarySimilarityScore = CountMatchingKeywords(userInput, stemmedPrimaryKeywords);
+        float secondarySimilarityScore = CountMatchingKeywords(userInput, stemmedSecondaryKeywords);
 
-        // Calculate the weighted match count
-        float weightedMatchCount = primaryMatchCount + (0.5f * secondaryMatchCount);
+        // Calculate the weighted similarity score
+        float weightedSimilarityScore = primarySimilarityScore + (0.5f * secondarySimilarityScore);
 
-        if (weightedMatchCount > highestWeightedMatchCount)
+        if (weightedSimilarityScore > highestSimilarityScore)
         {
-            highestWeightedMatchCount = weightedMatchCount;
+            highestSimilarityScore = weightedSimilarityScore;
             _matchedAnswer = qa.Answer;
         }
     }
 
-    // Check if highestWeightedMatchCount is less than 2.5, then set _matchedAnswer to the error message
-    if (highestWeightedMatchCount < 2.5f)
+    // Check if highestSimilarityScore is less than a certain threshold, then set _matchedAnswer to the error message
+    if (highestSimilarityScore < 0.1f) // Adjust the threshold according to your requirements
     {
         _matchedAnswer = "Sorry, couldn't not recognize the request, please try again.";
     }
@@ -128,7 +129,7 @@ if (GCSR_Example.speechText != _previousUserInput)
 
 
 
-    public int CountMatchingKeywords(string input, string keywords)
+    public float CountMatchingKeywords(string input, string keywords)
 {
     HashSet<string> keywordSet = new HashSet<string>(
         RemovePunctuation(keywords.ToLower())
@@ -136,23 +137,21 @@ if (GCSR_Example.speechText != _previousUserInput)
             .Where(word => !stopWords.Contains(word))
             .Select(word => StemWord(word))
     );
-    
+
     string[] inputWords = RemovePunctuation(input.ToLower())
         .Split(' ')
         .Where(word => !stopWords.Contains(word))
         .Select(word => StemWord(word))
         .ToArray();
 
-    int count = 0;
-    foreach (string word in inputWords)
-    {
-        if (keywordSet.Contains(word))
-        {
-            count++;
-        }
-    }
-    return count;
+    // Generate 2-grams for both the input words and the keyword set
+    HashSet<string> inputNGrams = GetNGrams(string.Join(" ", inputWords), 2);
+    HashSet<string> keywordNGrams = GetNGrams(string.Join(" ", keywordSet), 2);
+
+    // Calculate the Jaccard similarity coefficient
+    return JaccardSimilarityCoefficient(inputNGrams, keywordNGrams);
 }
+
 
 
     private string RemovePunctuation(string text)
@@ -171,4 +170,25 @@ if (GCSR_Example.speechText != _previousUserInput)
     var stemmer = new EnglishPorter2Stemmer();
     return stemmer.Stem(word).Value;
     }
+
+    private HashSet<string> GetNGrams(string input, int n)
+{
+    HashSet<string> nGrams = new HashSet<string>();
+
+    for (int i = 0; i < input.Length - n + 1; i++)
+    {
+        nGrams.Add(input.Substring(i, n));
+    }
+
+    return nGrams;
+}
+
+private float JaccardSimilarityCoefficient(HashSet<string> setA, HashSet<string> setB)
+{
+    int intersectionSize = setA.Intersect(setB).Count();
+    int unionSize = setA.Union(setB).Count();
+
+    return unionSize == 0 ? 0 : (float)intersectionSize / unionSize;
+}
+
 }
