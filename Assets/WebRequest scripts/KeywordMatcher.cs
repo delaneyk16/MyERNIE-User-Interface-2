@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Assets;
 using Newtonsoft.Json;
+using Porter2Stemmer;
 using FrostweepGames.Plugins.GoogleCloud.SpeechRecognition.Examples;
 
 public class KeywordMatcher : MonoBehaviour
@@ -35,17 +36,26 @@ public class KeywordMatcher : MonoBehaviour
             return;
         }
 
-        if (GCSR_Example.speechText != _previousUserInput)
-        {
-            _previousUserInput = GCSR_Example.speechText;
-            Debug.Log($"User input: {_previousUserInput}"); // Add this line
-            MatchKeywords(_previousUserInput);
+if (GCSR_Example.speechText != _previousUserInput)
+    {
+        _previousUserInput = GCSR_Example.speechText;
+        Debug.Log($"User input: {_previousUserInput}");
 
-            if (AnswerTextbox != null)
-            {
-                AnswerTextbox.text = _matchedAnswer;
-            }
+        // Debug output of stemmed user input
+        string[] stemmedInputWords = RemovePunctuation(_previousUserInput.ToLower())
+            .Split(' ')
+            .Where(word => !stopWords.Contains(word))
+            .Select(word => StemWord(word))
+            .ToArray();
+        Debug.Log($"Stemmed user input: {string.Join(" ", stemmedInputWords)}");
+
+        MatchKeywords(_previousUserInput);
+
+        if (AnswerTextbox != null)
+        {
+            AnswerTextbox.text = _matchedAnswer;
         }
+    }
     }
 
     public void MatchKeywords(string userInput)
@@ -81,7 +91,15 @@ public class KeywordMatcher : MonoBehaviour
     foreach (WebDataFetcher.QuestionAnswer qa in questionAnswers)
     {
         string keywords = string.IsNullOrEmpty(qa.Keywords) ? qa.Question : qa.Keywords;
-        int matchCount = CountMatchingKeywords(userInput, keywords);
+        
+        // Apply stemming on the keywords
+        string stemmedKeywords = string.Join(" ", RemovePunctuation(keywords.ToLower())
+            .Split(' ')
+            .Where(word => !stopWords.Contains(word))
+            .Select(word => StemWord(word))
+        );
+
+        int matchCount = CountMatchingKeywords(userInput, stemmedKeywords);
 
         if (matchCount > highestMatchCount)
         {
@@ -98,21 +116,33 @@ public class KeywordMatcher : MonoBehaviour
 }
 
 
-    public int CountMatchingKeywords(string input, string keywords)
-    {
-        HashSet<string> keywordSet = new HashSet<string>(RemovePunctuation(keywords.ToLower()).Split(' ').Where(word => !stopWords.Contains(word)));
-        string[] inputWords = RemovePunctuation(input.ToLower()).Split(' ').Where(word => !stopWords.Contains(word)).ToArray();
 
-        int count = 0;
-        foreach (string word in inputWords)
+    public int CountMatchingKeywords(string input, string keywords)
+{
+    HashSet<string> keywordSet = new HashSet<string>(
+        RemovePunctuation(keywords.ToLower())
+            .Split(' ')
+            .Where(word => !stopWords.Contains(word))
+            .Select(word => StemWord(word))
+    );
+    
+    string[] inputWords = RemovePunctuation(input.ToLower())
+        .Split(' ')
+        .Where(word => !stopWords.Contains(word))
+        .Select(word => StemWord(word))
+        .ToArray();
+
+    int count = 0;
+    foreach (string word in inputWords)
+    {
+        if (keywordSet.Contains(word))
         {
-            if (keywordSet.Contains(word))
-            {
-                count++;
-            }
+            count++;
         }
-        return count;
     }
+    return count;
+}
+
 
     private string RemovePunctuation(string text)
     {
@@ -123,5 +153,11 @@ public class KeywordMatcher : MonoBehaviour
     public class StopWords
     {
         public List<string> stopWordsList;
+    }
+
+    private string StemWord(string word)
+    {
+    var stemmer = new EnglishPorter2Stemmer();
+    return stemmer.Stem(word).Value;
     }
 }
